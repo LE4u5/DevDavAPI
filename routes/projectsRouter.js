@@ -12,9 +12,10 @@ const projectsRouter = express.Router();
 
 projectsRouter.route('/list')
 .get( async (req, res) => {
+    const time = new Date();
+        console.log(`${time.toDateString()} ${time.toLocaleTimeString()}: GET REQUEST FROM ${req.headers.origin}/${req.ip}`);
     try{
     const projectsArray = await Project.find({});
-    console.log(projectsArray);
     res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify(projectsArray));
@@ -23,13 +24,5 @@ projectsRouter.route('/list')
         console.log('Failed Request. :', err)
     }
 })
-// .post( async (req,res) => {
-//     try{
-
-//     }
-//     catch(err){
-
-//     }
-// })
 
 module.exports = projectsRouter;
