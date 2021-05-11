@@ -8,7 +8,7 @@ contactRouter.route('/message')
     .post((req, res) => {
         const time = new Date();
 
-        console.log(`${time.toDateString()} ${time.toLocaleTimeString()}: POST REQUEST FROM ${req.headers.origin}/${req.ip} - DATA [ ${JSON.stringify(req.body)} ]`);
+        console.log(`[${time.toDateString()} ${time.toLocaleTimeString()}]: POST REQUEST FROM ${req.headers.origin}/${req.ip} - DATA [ ${JSON.stringify(req.body)} ]`);
         const emailRegexp = /\w+@{1}\w+[.]\w+/;
         if (req.body.iname && req.body.iemail && req.body.imsg) {
             if (!req.body.iemail.match(emailRegexp) ){

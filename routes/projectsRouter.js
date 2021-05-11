@@ -13,7 +13,7 @@ const projectsRouter = express.Router();
 projectsRouter.route('/list')
 .get( async (req, res) => {
     const time = new Date();
-        console.log(`${time.toDateString()} ${time.toLocaleTimeString()}: GET REQUEST FROM ${req.headers.origin}/${req.ip}`);
+        console.log(`[${time.toDateString()} ${time.toLocaleTimeString()}]: GET REQUEST FROM ${req.headers.origin}/${req.ip}`);
     try{
     const projectsArray = await Project.find({});
     res.statusCode = 200;
